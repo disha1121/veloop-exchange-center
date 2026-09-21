@@ -1,0 +1,109 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 20px;
+  border-radius: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139, 92, 246, 0.6);
+}
+
+.locked {
+  opacity: 0.85;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: #8b5cf6;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  color: #9ca3af;
+}
+
+.conversion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.amount strong {
+  font-size: 1.8rem;
+}
+
+.gold {
+  color: #f5c04a;
+}
+
+.gemIcon {
+  color: #8b5cf6;
+}
+
+.coinIcon {
+  color: #f5c04a;
+}
+
+.arrow {
+  color: #9ca3af;
+}
+
+.warning {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #f5c04a;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  width: 100%;
+  padding: 12px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.primaryBtn {
+  border: none;
+  background: #8b5cf6;
+}
+
+.primaryBtn:hover {
+  background: #7c4df0;
+}
+
+.secondaryBtn {
+  border: 1px solid #f5c04a;
+  background: transparent;
+}
+
+.primaryBtn:focus-visible,
+.secondaryBtn:focus-visible {
+  outline: 3px solid #f5c04a;
+  outline-offset: 2px;
+}
