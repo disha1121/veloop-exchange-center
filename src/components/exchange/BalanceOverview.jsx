@@ -1,13 +1,14 @@
-import { Gem, Coins } from 'lucide-react';
 import InfoTooltip from './InfoTooltip';
 import { infoExplanations } from '../../data/exchangeData';
+import gemImg from '../../assets/burple_diamond.png';
+import coinImg from '../../assets/coin.png';
 import styles from './BalanceOverview.module.css';
 
 function BalanceOverview({ gems, ves }) {
   return (
     <section className={styles.wrapper} aria-label="Your balances">
       <div className={styles.card}>
-        <Gem className={styles.gemIcon} aria-hidden="true" />
+        <img src={gemImg} alt="" className={styles.gemIcon} />
         <div>
           <p className={styles.label}>
             Available Gems
@@ -18,7 +19,7 @@ function BalanceOverview({ gems, ves }) {
       </div>
 
       <div className={styles.card}>
-        <Coins className={styles.coinIcon} aria-hidden="true" />
+        <img src={coinImg} alt="" className={styles.coinIcon} />
         <div>
           <p className={styles.label}>
             Available VEs

@@ -15,16 +15,19 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.gemIcon {
-  width: 36px;
-  height: 36px;
-  color: #8b5cf6;
+.gemIcon,
+.coinIcon {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .coinIcon {
   width: 36px;
   height: 36px;
-  color: #f5c04a;
+   object-fit: contain;
 }
 
 .label {

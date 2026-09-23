@@ -1,4 +1,5 @@
-import { CheckCircle2, Gem, Coins } from 'lucide-react';
+import { Gem, Coins } from 'lucide-react';
+import checkImg from '../../assets/check.png';
 import styles from './ConversionSuccess.module.css';
 
 function ConversionSuccess({ conversion, onContinue }) {
@@ -11,7 +12,7 @@ function ConversionSuccess({ conversion, onContinue }) {
         aria-labelledby="success-title"
         onClick={(event) => event.stopPropagation()}
       >
-        <CheckCircle2 className={styles.checkIcon} aria-hidden="true" />
+       <img src={checkImg} alt="" className={styles.checkIcon} />
         <h2 id="success-title" className={styles.title}>Conversion Complete</h2>
 
         <p className={styles.summary}>

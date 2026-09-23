@@ -1,4 +1,6 @@
-import { Gem, Coins, ArrowDown } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
+import gemImg from '../../assets/burple_diamond.png';
+import coinImg from '../../assets/coin.png';
 import styles from './ExchangeCard.module.css';
 
 function ExchangeCard({ option, availableGems, onConvert, onEarnMore }) {
@@ -13,12 +15,12 @@ function ExchangeCard({ option, availableGems, onConvert, onEarnMore }) {
 
       <div className={styles.conversion}>
         <p className={styles.amount}>
-          <Gem className={styles.gemIcon} aria-hidden="true" />
+        <img src={gemImg} alt="" className={styles.gemIcon} />
           <strong>{requiredGems}</strong> Gems
         </p>
         <ArrowDown className={styles.arrow} aria-hidden="true" />
         <p className={`${styles.amount} ${styles.gold}`}>
-          <Coins className={styles.coinIcon} aria-hidden="true" />
+          <img src={coinImg} alt="" className={styles.coinIcon} />
           <strong>{receiveVEs}</strong> VEs
         </p>
       </div>

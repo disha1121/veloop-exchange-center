@@ -60,12 +60,12 @@
   color: #f5c04a;
 }
 
-.gemIcon {
-  color: #8b5cf6;
-}
-
+.gemIcon,
 .coinIcon {
-  color: #f5c04a;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .arrow {
