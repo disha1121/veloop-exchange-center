@@ -10,6 +10,7 @@ import ExchangeRules from '../../components/exchange/ExchangeRules';
 import ExchangeLoader from '../../components/exchange/ExchangeLoader';
 import ExchangeEmpty from '../../components/exchange/ExchangeEmpty';
 import ExchangeError from '../../components/exchange/ExchangeError';
+import ConversionSuccess from '../../components/exchange/ConversionSuccess';
 import styles from './ExchangeCenter.module.css';
 
 function ExchangeCenter() {
@@ -72,15 +73,7 @@ function ExchangeCenter() {
           <ExchangeHero />
           <BalanceOverview gems={balance.gems} ves={balance.ves} />
 
-          {lastConversion && (
-            <div className={styles.success} role="status">
-              <p>
-                ✓ Conversion Complete: {lastConversion.requiredGems} Gems converted,
-                +{lastConversion.receiveVEs} VEs added to your balance.
-              </p>
-              <button type="button" onClick={() => setLastConversion(null)}>Continue</button>
-            </div>
-          )}
+          
 
           <h2 className={styles.heading}>Available Conversions</h2>
           <section className={styles.grid}>
@@ -112,6 +105,12 @@ function ExchangeCenter() {
               onConfirm={handleConfirm}
             />
           )}
+          {lastConversion && (
+  <ConversionSuccess
+    conversion={lastConversion}
+    onContinue={() => setLastConversion(null)}
+  />
+)}
         </>
       )}
     </main>
