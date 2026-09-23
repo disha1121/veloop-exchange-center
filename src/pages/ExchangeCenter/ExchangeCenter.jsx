@@ -1,13 +1,15 @@
 import { useState, useCallback } from 'react';
-import { initialBalance, exchangeOptions } from '../../data/exchangeData';
+import { initialBalance, exchangeOptions, conversionHistory } from '../../data/exchangeData';
 import ExchangeHero from '../../components/exchange/ExchangeHero';
 import BalanceOverview from '../../components/exchange/BalanceOverview';
 import ExchangeCard from '../../components/exchange/ExchangeCard';
 import ExchangeModal from '../../components/exchange/ExchangeModal';
+import ExchangeHistory from '../../components/exchange/ExchangeHistory';
 import styles from './ExchangeCenter.module.css';
 
 function ExchangeCenter() {
   const [balance, setBalance] = useState(initialBalance);
+  const [history, setHistory] = useState(conversionHistory);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [lastConversion, setLastConversion] = useState(null);
@@ -15,7 +17,7 @@ function ExchangeCenter() {
   const handleCancel = useCallback(() => setSelectedOption(null), []);
 
   const handleEarnMore = () => {
-    // TODO: yahan baad mein "Earn Gems" page ka link lagayenge
+    // TODO: baad mein "Earn Gems" page ka link lagayenge
   };
 
   const handleConfirm = () => {
@@ -28,6 +30,16 @@ function ExchangeCenter() {
         gems: prev.gems - selectedOption.requiredGems,
         ves: prev.ves + selectedOption.receiveVEs,
       }));
+      setHistory((prev) => [
+        {
+          id: `h-${Date.now()}`,
+          gems: selectedOption.requiredGems,
+          ves: selectedOption.receiveVEs,
+          date: 'Today',
+          status: 'completed',
+        },
+        ...prev,
+      ]);
       setLastConversion(selectedOption);
       setSelectedOption(null);
       setIsProcessing(false);
@@ -61,6 +73,8 @@ function ExchangeCenter() {
           />
         ))}
       </section>
+
+      <ExchangeHistory history={history} />
 
       {selectedOption && (
         <ExchangeModal
