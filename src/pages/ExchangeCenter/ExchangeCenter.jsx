@@ -1,11 +1,12 @@
 import { useState, useCallback } from 'react';
-import { initialBalance, exchangeOptions, conversionHistory, exchangeSteps } from '../../data/exchangeData';
+import { initialBalance, exchangeOptions, conversionHistory, exchangeSteps, exchangeRules } from '../../data/exchangeData';
 import ExchangeHero from '../../components/exchange/ExchangeHero';
 import BalanceOverview from '../../components/exchange/BalanceOverview';
 import ExchangeCard from '../../components/exchange/ExchangeCard';
 import ExchangeModal from '../../components/exchange/ExchangeModal';
 import ExchangeHistory from '../../components/exchange/ExchangeHistory';
 import HowExchangeWorks from '../../components/exchange/HowExchangeWorks';
+import ExchangeRules from '../../components/exchange/ExchangeRules';
 import styles from './ExchangeCenter.module.css';
 
 function ExchangeCenter() {
@@ -76,6 +77,7 @@ function ExchangeCenter() {
       </section>
 <HowExchangeWorks steps={exchangeSteps} />
       <ExchangeHistory history={history} />
+      <ExchangeRules rules={exchangeRules} />
 
       {selectedOption && (
         <ExchangeModal
