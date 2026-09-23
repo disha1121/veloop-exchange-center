@@ -31,3 +31,21 @@ export const exchangeRules = [
   'Your balance is updated after successful conversion.',
   'Platform rules apply.',
 ];
+export const infoExplanations = {
+  gems: {
+    label: 'What are Gems?',
+    text: 'Gems are reward credits earned through eligible activities on VELOOP Rewards.',
+  },
+  ves: {
+    label: 'What are VEs?',
+    text: "VEs are VELOOP Rewards' virtual reward currency and may be used for eligible redemption options according to platform rules.",
+  },
+  exchangeRate: {
+    label: 'Exchange Value',
+    text: 'The number of VEs you receive for a given amount of Gems, as set by VELOOP Rewards.',
+  },
+  exchangeRules: {
+    label: 'Exchange Rules',
+    text: 'Conversions follow VELOOP Rewards platform rules and predefined exchange values.',
+  },
+};
