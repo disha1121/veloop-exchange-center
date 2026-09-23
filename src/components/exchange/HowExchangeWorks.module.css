@@ -1,0 +1,49 @@
+.section {
+  margin-top: 48px;
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  padding: 20px 16px;
+  border-radius: 16px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #f5c04a;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 192, 74, 0.5);
+}
+
+.title {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
