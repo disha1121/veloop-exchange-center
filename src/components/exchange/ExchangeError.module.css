@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 60px 16px;
+  text-align: center;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  color: #f87171;
+}
+
+.title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.text {
+  margin: 0 0 12px;
+  color: #9ca3af;
+}
+
+.retryBtn {
+  padding: 10px 24px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  background: #8b5cf6;
+  cursor: pointer;
+}

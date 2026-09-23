@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { initialBalance, exchangeOptions, conversionHistory, exchangeSteps, exchangeRules } from '../../data/exchangeData';
 import ExchangeHero from '../../components/exchange/ExchangeHero';
 import BalanceOverview from '../../components/exchange/BalanceOverview';
@@ -7,14 +7,28 @@ import ExchangeModal from '../../components/exchange/ExchangeModal';
 import ExchangeHistory from '../../components/exchange/ExchangeHistory';
 import HowExchangeWorks from '../../components/exchange/HowExchangeWorks';
 import ExchangeRules from '../../components/exchange/ExchangeRules';
+import ExchangeLoader from '../../components/exchange/ExchangeLoader';
+import ExchangeEmpty from '../../components/exchange/ExchangeEmpty';
+import ExchangeError from '../../components/exchange/ExchangeError';
 import styles from './ExchangeCenter.module.css';
 
 function ExchangeCenter() {
   const [balance, setBalance] = useState(initialBalance);
+  const [pageStatus, setPageStatus] = useState('loading'); // 'loading' | 'ready' | 'error'
   const [history, setHistory] = useState(conversionHistory);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [lastConversion, setLastConversion] = useState(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setPageStatus('ready'), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleRetry = () => {
+    setPageStatus('loading');
+    setTimeout(() => setPageStatus('ready'), 1200);
+  };
 
   const handleCancel = useCallback(() => setSelectedOption(null), []);
 
@@ -50,43 +64,55 @@ function ExchangeCenter() {
 
   return (
     <main className={styles.page}>
-      <ExchangeHero />
-      <BalanceOverview gems={balance.gems} ves={balance.ves} />
+      {pageStatus === 'loading' && <ExchangeLoader />}
+      {pageStatus === 'error' && <ExchangeError onRetry={handleRetry} />}
 
-      {lastConversion && (
-        <div className={styles.success} role="status">
-          <p>
-            ✓ Conversion Complete: {lastConversion.requiredGems} Gems converted,
-            +{lastConversion.receiveVEs} VEs added to your balance.
-          </p>
-          <button type="button" onClick={() => setLastConversion(null)}>Continue</button>
-        </div>
-      )}
+      {pageStatus === 'ready' && (
+        <>
+          <ExchangeHero />
+          <BalanceOverview gems={balance.gems} ves={balance.ves} />
 
-      <h2 className={styles.heading}>Available Conversions</h2>
-      <section className={styles.grid}>
-        {exchangeOptions.map((option) => (
-          <ExchangeCard
-            key={option.id}
-            option={option}
-            availableGems={balance.gems}
-            onConvert={setSelectedOption}
-            onEarnMore={handleEarnMore}
-          />
-        ))}
-      </section>
-<HowExchangeWorks steps={exchangeSteps} />
-      <ExchangeHistory history={history} />
-      <ExchangeRules rules={exchangeRules} />
+          {lastConversion && (
+            <div className={styles.success} role="status">
+              <p>
+                ✓ Conversion Complete: {lastConversion.requiredGems} Gems converted,
+                +{lastConversion.receiveVEs} VEs added to your balance.
+              </p>
+              <button type="button" onClick={() => setLastConversion(null)}>Continue</button>
+            </div>
+          )}
 
-      {selectedOption && (
-        <ExchangeModal
-          option={selectedOption}
-          balance={balance}
-          isProcessing={isProcessing}
-          onCancel={handleCancel}
-          onConfirm={handleConfirm}
-        />
+          <h2 className={styles.heading}>Available Conversions</h2>
+          <section className={styles.grid}>
+            {exchangeOptions.length === 0 ? (
+              <ExchangeEmpty />
+            ) : (
+              exchangeOptions.map((option) => (
+                <ExchangeCard
+                  key={option.id}
+                  option={option}
+                  availableGems={balance.gems}
+                  onConvert={setSelectedOption}
+                  onEarnMore={handleEarnMore}
+                />
+              ))
+            )}
+          </section>
+
+          <HowExchangeWorks steps={exchangeSteps} />
+          <ExchangeHistory history={history} />
+          <ExchangeRules rules={exchangeRules} />
+
+          {selectedOption && (
+            <ExchangeModal
+              option={selectedOption}
+              balance={balance}
+              isProcessing={isProcessing}
+              onCancel={handleCancel}
+              onConfirm={handleConfirm}
+            />
+          )}
+        </>
       )}
     </main>
   );
