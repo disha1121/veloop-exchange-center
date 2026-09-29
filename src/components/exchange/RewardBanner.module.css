@@ -1,0 +1,89 @@
+.banner {
+  background: linear-gradient(90deg, rgba(30, 27, 50, 0.9) 0%, rgba(20, 22, 38, 0.95) 100%);
+  border: 1px solid rgba(245, 192, 74, 0.25);
+  border-radius: 16px;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 2;
+}
+
+.crownCircle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(245, 192, 74, 0.25) 0%, rgba(245, 158, 11, 0.1) 100%);
+  border: 1px solid rgba(245, 192, 74, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.crownIcon {
+  color: #f5c04a;
+  filter: drop-shadow(0 2px 4px rgba(245, 192, 74, 0.4));
+}
+
+.bannerText {
+  font-size: 13px;
+  font-weight: 500;
+  color: #e2e8f0;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.highlightText {
+  color: #94a3b8;
+}
+
+.rightGraphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.boxImage {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(245, 192, 74, 0.3));
+  animation: floatBox 4s ease-in-out infinite;
+}
+
+@keyframes floatBox {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .rightGraphic {
+    align-self: flex-end;
+    margin-top: -30px;
+  }
+
+  .boxImage {
+    height: 48px;
+  }
+}

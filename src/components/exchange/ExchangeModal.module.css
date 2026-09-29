@@ -1,104 +1,230 @@
 .overlay {
   position: fixed;
-  inset: 0;
-  z-index: 1050;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 12, 22, 0.75);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000;
   padding: 16px;
-  background: rgba(8, 9, 20, 0.75);
 }
 
 .modal {
+  background: linear-gradient(180deg, #1a1d30 0%, #121424 100%);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 24px;
+  padding: 28px 24px 24px 24px;
   width: 100%;
-  max-width: 420px;
-  padding: 28px 24px;
-  border-radius: 20px;
-  background: #1e2035;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.title {
-  margin: 0 0 20px;
-  font-size: 1.4rem;
-  text-align: center;
-}
-
-.conversion {
+  max-width: 440px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(168, 85, 247, 0.15);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  text-align: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeBtn:hover:not(:disabled) {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0 0 20px 0;
+}
+
+/* Conversion Card */
+.conversionCard {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
-.amount {
+.amountBlock {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 10px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  justify-content: center;
 }
 
-.gold {
+.goldBlock {
+  border-color: rgba(245, 192, 74, 0.2);
+}
+
+.assetIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.amountInfo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.amountValue {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.goldBlock .amountValue {
   color: #f5c04a;
 }
 
-.summary {
-  display: grid;
-  gap: 8px;
-  margin: 0 0 24px;
-}
-
-.summary div {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.summary dt {
-  color: #9ca3af;
-}
-
-.summary dd {
-  margin: 0;
-  font-weight: 700;
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
-}
-
-.cancelBtn,
-.confirmBtn {
-  flex: 1;
-  padding: 12px;
+.amountLabel {
+  font-size: 13px;
   font-weight: 600;
-  color: #fff;
+  color: #94a3b8;
+}
+
+.arrowCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.2);
+  color: #c084fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Summary Grid */
+.summaryGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.summaryItem {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  cursor: pointer;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summaryLabel {
+  font-size: 10px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.summaryValue {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.goldText {
+  color: #f5c04a;
+}
+
+/* Actions */
+.actions {
+  width: 100%;
+  display: flex;
+  gap: 12px;
 }
 
 .cancelBtn {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: transparent;
+  flex: 1;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #cbd5e1;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .confirmBtn {
+  flex: 1.5;
+  padding: 12px;
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
   border: none;
-  background: #8b5cf6;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-.cancelBtn:disabled,
+.confirmBtn:hover:not(:disabled) {
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+  transform: translateY(-1px);
+}
+
 .confirmBtn:disabled {
-  opacity: 0.6;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
-.cancelBtn:focus-visible,
-.confirmBtn:focus-visible {
-  outline: 3px solid #f5c04a;
-  outline-offset: 2px;
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

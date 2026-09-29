@@ -1,0 +1,143 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px 28px;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.mobileMenuBtn {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.balanceBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(26, 29, 46, 0.75);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.balanceBadge:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+}
+
+.veBadge {
+  border-color: rgba(245, 192, 74, 0.3);
+}
+
+.veBadge:hover {
+  border-color: rgba(245, 192, 74, 0.6);
+  box-shadow: 0 4px 20px rgba(245, 192, 74, 0.2);
+}
+
+.badgeIcon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.badgeContent {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.badgeValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.badgeLabel {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.notifBtn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.notifBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.notifBadge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ec4899 0%, #ef4444 100%);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #161827;
+}
+
+@media (max-width: 992px) {
+  .header {
+    padding: 14px 16px;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .rightSection {
+    gap: 8px;
+  }
+
+  .balanceBadge {
+    padding: 4px 10px;
+  }
+
+  .badgeValue {
+    font-size: 12px;
+  }
+
+  .badgeLabel {
+    display: none;
+  }
+}

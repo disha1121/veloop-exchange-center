@@ -1,23 +1,98 @@
 .section {
-  margin-top: 48px;
-  padding: 24px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, rgba(22, 25, 42, 0.8) 0%, rgba(15, 17, 30, 0.9) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  height: 100%;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  gap: 16px;
+  align-items: center;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .heading {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-  font-size: 1.3rem;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
 }
 
-.list {
-  display: grid;
-  gap: 8px;
+.rulesList {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  padding-left: 20px;
-  color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ruleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkIcon {
+  color: #a855f7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ruleText {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.rightCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shieldWrapper {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shieldImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(168, 85, 247, 0.4));
+  animation: floatShield 4s ease-in-out infinite;
+}
+
+@keyframes floatShield {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (max-width: 576px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rightCol {
+    display: none;
+  }
 }
