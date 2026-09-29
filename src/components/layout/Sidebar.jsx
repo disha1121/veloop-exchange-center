@@ -67,14 +67,14 @@ function Sidebar({ isOpen, onClose }) {
 
         {/* User Profile Card */}
         <div className={styles.userProfile}>
-          <div className={styles.avatar}>H</div>
+          <div className={styles.avatar}>D</div>
           <div className={styles.userInfo}>
             <div className={styles.userNameRow}>
               <span className={styles.greeting}>Hello,</span>
-              <span className={styles.userName}>Hasan</span>
+              <span className={styles.userName}>Disha</span>
               <span className={styles.levelBadge}>Level 7</span>
             </div>
-            <span className={styles.veloopId}>Veloop ID: 78459</span>
+            <span className={styles.veloopId}>Veloop ID: VLRINT202601722</span>
           </div>
         </div>
 
