@@ -1,4 +1,5 @@
-import { Check, X, Calendar, ArrowRight, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Check, X, Calendar, ArrowRight, ChevronRight, Search, History } from 'lucide-react';
 import purpleGemImg from '../../assets/burple_diamond.png';
 import blueGemImg from '../../assets/bluediamond.png';
 import greenGemImg from '../../assets/green_diamond.png';
@@ -14,20 +15,62 @@ const GEM_ICONS = {
 };
 
 function ExchangeHistory({ history }) {
+  const [filter, setFilter] = useState('all'); // 'all' | 'completed' | 'failed'
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredHistory = history.filter((item) => {
+    const matchesFilter = filter === 'all' || item.status === filter;
+    const matchesSearch =
+      item.gems.toString().includes(searchQuery) ||
+      item.ves.toString().includes(searchQuery) ||
+      item.date.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
   return (
     <section className={styles.section} aria-labelledby="history-title">
-      {/* Header */}
+      {/* Header & Controls */}
       <div className={styles.header}>
-        <h2 id="history-title" className={styles.heading}>Recent Conversions</h2>
-        <button type="button" className={styles.viewAllBtn}>View All</button>
+        <div className={styles.headerTitleRow}>
+          <History size={18} className={styles.headerIcon} />
+          <h2 id="history-title" className={styles.heading}>Recent Conversions</h2>
+        </div>
+
+        {/* Filter Pills */}
+        <div className={styles.filterPills}>
+          {['all', 'completed', 'failed'].map((f) => (
+            <button
+              key={f}
+              type="button"
+              className={`${styles.filterBtn} ${filter === f ? styles.activeFilter : ''}`}
+              onClick={() => setFilter(f)}
+            >
+              {f.charAt(0).toUpperCase() + f.slice(1)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Search Input Bar */}
+      <div className={styles.searchBar}>
+        <Search size={14} className={styles.searchIcon} />
+        <input
+          type="text"
+          className={styles.searchInput}
+          placeholder="Search by amount or date..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </div>
 
       {/* List */}
-      {history.length === 0 ? (
-        <p className={styles.empty}>No conversions yet.</p>
+      {filteredHistory.length === 0 ? (
+        <div className={styles.emptyBox}>
+          <p className={styles.empty}>No conversions found matching criteria.</p>
+        </div>
       ) : (
         <ul className={styles.list}>
-          {history.map((item) => {
+          {filteredHistory.map((item) => {
             const gemImg = GEM_ICONS[item.gemTheme] || purpleGemImg;
             const isCompleted = item.status === 'completed';
 
@@ -43,7 +86,7 @@ function ExchangeHistory({ history }) {
 
                   <div className={styles.details}>
                     <span className={styles.conversionText}>
-                      <strong>{item.gems} Gems</strong> → <strong>{item.ves} VEs</strong>
+                      <strong>{item.gems} Gems</strong> → <strong className={styles.goldText}>{item.ves} VEs</strong>
                     </span>
                     <span className={styles.dateText}>
                       {item.date} {item.time && `• ${item.time}`}
@@ -55,11 +98,13 @@ function ExchangeHistory({ history }) {
                 <div className={styles.itemRight}>
                   {isCompleted ? (
                     <span className={`${styles.statusBadge} ${styles.completed}`}>
-                      Completed <Check size={12} />
+                      <span className={styles.dotGreen} />
+                      Completed
                     </span>
                   ) : (
                     <span className={`${styles.statusBadge} ${styles.failed}`}>
-                      Failed <X size={12} />
+                      <span className={styles.dotRed} />
+                      Failed
                     </span>
                   )}
                 </div>
@@ -72,7 +117,7 @@ function ExchangeHistory({ history }) {
       {/* Footer Link */}
       <button type="button" className={styles.fullHistoryBtn}>
         <Calendar size={14} />
-        <span>View Full History</span>
+        <span>View Full Activity Log</span>
         <ChevronRight size={14} className={styles.chevronIcon} />
       </button>
     </section>

@@ -1,271 +1,380 @@
 .card {
-  background: linear-gradient(180deg, rgba(24, 28, 47, 0.9) 0%, rgba(16, 18, 30, 0.95) 100%);
+  background: linear-gradient(145deg, rgba(22, 26, 46, 0.85) 0%, rgba(14, 16, 30, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 24px 20px 20px 20px;
+  border-radius: 22px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   position: relative;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease;
 }
 
 /* Color Themes */
-.purple {
-  border-top: 2px solid rgba(168, 85, 247, 0.6);
-}
-
+.purple { border-top: 3px solid #a855f7; }
 .purple:hover {
-  border-color: rgba(168, 85, 247, 0.8);
-  box-shadow: 0 16px 36px rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.25);
 }
 
-.blue {
-  border-top: 2px solid rgba(59, 130, 246, 0.6);
-}
-
+.blue { border-top: 3px solid #3b82f6; }
 .blue:hover {
-  border-color: rgba(59, 130, 246, 0.8);
-  box-shadow: 0 16px 36px rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.25);
 }
 
-.green {
-  border-top: 2px solid rgba(34, 197, 94, 0.6);
-}
-
+.green { border-top: 3px solid #10b981; }
 .green:hover {
-  border-color: rgba(34, 197, 94, 0.8);
-  box-shadow: 0 16px 36px rgba(34, 197, 94, 0.2);
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 16px 40px rgba(16, 185, 129, 0.25);
 }
 
-.orange {
-  border-top: 2px solid rgba(245, 158, 11, 0.6);
-}
-
+.orange { border-top: 3px solid #f97316; }
 .orange:hover {
-  border-color: rgba(245, 158, 11, 0.8);
-  box-shadow: 0 16px 36px rgba(245, 158, 11, 0.2);
+  border-color: rgba(249, 115, 22, 0.6);
+  box-shadow: 0 16px 40px rgba(249, 115, 22, 0.25);
 }
 
 .locked {
-  opacity: 0.8;
+  opacity: 0.88;
 }
 
-/* Badges */
-.badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 12px;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-}
-
-.purpleBadge {
-  background: rgba(168, 85, 247, 0.2);
-  color: #e9d5ff;
-  border: 1px solid rgba(168, 85, 247, 0.4);
-}
-
-.blueBadge {
-  background: rgba(59, 130, 246, 0.2);
-  color: #bfdbfe;
-  border: 1px solid rgba(59, 130, 246, 0.4);
-}
-
-/* Visual Header */
-.visualHeader {
+/* Badges Header */
+.topBadgeRow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 10px;
+  justify-content: space-between;
   margin-bottom: 16px;
   width: 100%;
 }
 
-.gemWrapper, .coinWrapper {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sparkleIcon {
+  color: #f5c04a;
+}
+
+.purpleBadge {
+  background: rgba(168, 85, 247, 0.15);
+  color: #e9d5ff;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.blueBadge {
+  background: rgba(59, 130, 246, 0.15);
+  color: #bfdbfe;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.greenBadge {
+  background: rgba(16, 185, 129, 0.15);
+  color: #a7f3d0;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.orangeBadge {
+  background: rgba(249, 115, 22, 0.15);
+  color: #ffedd5;
+  border: 1px solid rgba(249, 115, 22, 0.35);
+}
+
+.rateRatioChip {
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+/* Visual Connector Stage */
+.visualHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: rgba(10, 12, 22, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+}
+
+.gemWrapper, .coinWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
-  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.05);
+  padding: 5px;
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.08);
 }
+
+.purpleGlow { background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.3); }
+.blueGlow { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); }
+.greenGlow { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); }
+.orangeGlow { background: rgba(249, 115, 22, 0.15); border: 1px solid rgba(249, 115, 22, 0.3); }
+.goldGlow { background: rgba(245, 192, 74, 0.15); border: 1px solid rgba(245, 192, 74, 0.3); }
 
 .gemImage, .coinImage {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
   transition: transform 0.3s ease;
 }
 
 .card:hover .gemImage,
 .card:hover .coinImage {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
-.arrowIcon {
-  color: #64748b;
+.swapConnector {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  justify-content: center;
+  margin: 0 12px;
 }
 
-/* Title */
+.connectorLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0 4px, transparent 4px 8px);
+}
+
+.arrowCircle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #181d33;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Title & Description */
 .title {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   color: #ffffff;
-  margin: 0 0 14px 0;
+  margin: 0 0 4px 0;
 }
 
-/* Conversion Numbers */
+.description {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+  min-height: 30px;
+}
+
+/* Conversion Amounts Box */
 .conversionBox {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2px;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
 }
 
-.amountRow {
+.amountPill {
   display: flex;
   align-items: baseline;
-  gap: 6px;
+  gap: 5px;
 }
 
 .amountNum {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.5px;
 }
 
-.veAmountRow .amountNum {
-  color: #f5c04a;
-  text-shadow: 0 0 12px rgba(245, 192, 74, 0.3);
-}
-
 .amountLabel {
-  font-size: 13px;
-  font-weight: 600;
-  color: #94a3b8;
-}
-
-.downArrow {
-  color: #64748b;
-  margin: 2px 0;
-}
-
-/* Description */
-.description {
   font-size: 11px;
+  font-weight: 700;
   color: #94a3b8;
-  margin: 0 0 18px 0;
-  line-height: 1.4;
-  min-height: 32px;
+}
+
+.equalsSign {
+  font-size: 14px;
+  font-weight: 800;
+  color: #64748b;
+}
+
+.amountNumGold {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f5c04a;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 10px rgba(245, 192, 74, 0.3);
+}
+
+.amountLabelGold {
+  font-size: 11px;
+  font-weight: 700;
+  color: #f5c04a;
+}
+
+/* Progress Container */
+.progressContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.progressHeader {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  font-size: 10px;
 }
 
-/* CTAs */
+.unlockedText {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #10b981;
+  font-weight: 700;
+}
+
+.progressPercentText {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.gemsNeededTag {
+  color: #fca5a5;
+  font-weight: 700;
+}
+
+.track {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.purpleFill { background: linear-gradient(90deg, #a855f7, #c084fc); }
+.blueFill { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.greenFill { background: linear-gradient(90deg, #10b981, #34d399); }
+.orangeFill { background: linear-gradient(90deg, #f97316, #fb923c); }
+
+/* Buttons */
 .convertBtn {
   width: 100%;
-  padding: 10px 16px;
+  padding: 11px 16px;
   border: none;
   border-radius: 12px;
   color: #ffffff;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: all 0.2s ease;
   letter-spacing: 0.3px;
 }
 
 .purpleBtn {
   background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
-  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.35);
 }
 
 .purpleBtn:hover {
-  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(168, 85, 247, 0.5);
 }
 
 .blueBtn {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
 }
 
 .blueBtn:hover {
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(59, 130, 246, 0.5);
 }
 
 .greenBtn {
   background: linear-gradient(135deg, #10b981 0%, #047857 100%);
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
 }
 
 .greenBtn:hover {
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.5);
 }
 
 .orangeBtn {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
 }
 
 .orangeBtn:hover {
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
-  transform: translateY(-1px);
-}
-
-/* Locked / Insufficient State */
-.lockedSection {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.warningText {
-  font-size: 10px;
-  color: #f87171;
-  margin: 0;
-  line-height: 1.3;
+  box-shadow: 0 6px 22px rgba(249, 115, 22, 0.5);
 }
 
 .earnMoreBtn {
   width: 100%;
-  padding: 10px 16px;
-  background: rgba(239, 68, 68, 0.12);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 11px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
   border-radius: 12px;
   color: #fca5a5;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: all 0.2s ease;
 }
 
 .earnMoreBtn:hover {
   background: rgba(239, 68, 68, 0.2);
   color: #ffffff;
+  border-color: rgba(239, 68, 68, 0.4);
 }

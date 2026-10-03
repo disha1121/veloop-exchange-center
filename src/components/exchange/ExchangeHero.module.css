@@ -2,9 +2,76 @@
   margin-bottom: 28px;
 }
 
+/* Top Banner Ticker */
+.topTickerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(18, 22, 41, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tickerPill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.tickerIcon {
+  color: #c084fc;
+}
+
+.tickerItems {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.tickerItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.goldIcon { color: #f5c04a; }
+.greenIcon { color: #10b981; }
+
+.bonusBadge {
+  background: linear-gradient(135deg, rgba(245, 192, 74, 0.2) 0%, rgba(245, 158, 11, 0.2) 100%);
+  color: #f5c04a;
+  border: 1px solid rgba(245, 192, 74, 0.4);
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .heroGrid {
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  grid-template-columns: 1.25fr 0.85fr 0.9fr;
   gap: 20px;
   align-items: center;
 }
@@ -19,23 +86,27 @@
 .headerTextGroup {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .mainTitle {
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 800;
   color: #ffffff;
   margin: 0;
-  letter-spacing: -0.5px;
-  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #c084fc 0%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .subTitle {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   color: #e2e8f0;
   margin: 0;
 }
@@ -44,7 +115,7 @@
   font-size: 13px;
   color: #94a3b8;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* Balance Row Cards */
@@ -55,48 +126,45 @@
 
 .balanceCard {
   flex: 1;
-  background: linear-gradient(135deg, rgba(26, 30, 49, 0.8) 0%, rgba(18, 20, 34, 0.9) 100%);
+  background: linear-gradient(145deg, rgba(22, 27, 48, 0.8) 0%, rgba(14, 17, 33, 0.9) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: 18px;
+  padding: 18px;
   display: flex;
   align-items: center;
   gap: 14px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-}
-
-.balanceCard:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.18);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 .gemsCard {
-  border-left: 3px solid #a855f7;
+  border-left: 4px solid #a855f7;
 }
 
 .gemsCard:hover {
-  box-shadow: 0 12px 32px rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 14px 36px rgba(168, 85, 247, 0.2);
 }
 
 .vesCard {
-  border-left: 3px solid #f5c04a;
+  border-left: 4px solid #f5c04a;
 }
 
 .vesCard:hover {
-  box-shadow: 0 12px 32px rgba(245, 192, 74, 0.15);
+  border-color: rgba(245, 192, 74, 0.4);
+  box-shadow: 0 14px 36px rgba(245, 192, 74, 0.2);
 }
 
 .cardWatermark {
   position: absolute;
-  right: -10px;
-  bottom: -10px;
-  width: 90px;
-  height: 90px;
-  opacity: 0.06;
+  right: -12px;
+  bottom: -12px;
+  width: 95px;
+  height: 95px;
+  opacity: 0.08;
   pointer-events: none;
 }
 
@@ -106,17 +174,38 @@
   object-fit: contain;
 }
 
+.iconCircleGems, .iconCircleVEs {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+.iconCircleGems {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(124, 58, 237, 0.1) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.iconCircleVEs {
+  background: radial-gradient(circle, rgba(245, 192, 74, 0.25) 0%, rgba(217, 119, 6, 0.1) 100%);
+  border: 1px solid rgba(245, 192, 74, 0.3);
+}
+
 .balanceIcon {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
 }
 
 .cardRight {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .cardLabelRow {
@@ -127,26 +216,44 @@
 
 .cardLabel {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .cardValue {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.6px;
   line-height: 1.1;
 }
 
-.cardSubtext {
-  font-size: 10px;
-  color: #64748b;
+.goldValue {
+  color: #f5c04a;
+  text-shadow: 0 0 14px rgba(245, 192, 74, 0.3);
 }
 
-/* Center Vault Graphic */
+.cardFooterTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #c084fc;
+}
+
+.cardFooterTagGold {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f5c04a;
+}
+
+/* Center Vault Stage */
 .centerVaultCol {
   display: flex;
   justify-content: center;
@@ -160,25 +267,35 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
 }
 
 .vaultGlowCircle {
   position: absolute;
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(245, 192, 74, 0.25) 0%, rgba(168, 85, 247, 0.2) 50%, transparent 70%);
-  filter: blur(25px);
+  background: radial-gradient(circle, rgba(245, 192, 74, 0.3) 0%, rgba(168, 85, 247, 0.25) 50%, transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.vaultRingPulse {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px dashed rgba(168, 85, 247, 0.3);
+  animation: pulseGlow 4s infinite ease-in-out;
   pointer-events: none;
 }
 
 .vaultGraphic {
   width: 100%;
-  max-width: 280px;
+  max-width: 260px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.6));
   z-index: 2;
 }
 
@@ -189,76 +306,132 @@
 
 .infoCard {
   width: 100%;
-  background: linear-gradient(180deg, rgba(24, 28, 47, 0.8) 0%, rgba(17, 19, 33, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(22, 27, 48, 0.85) 0%, rgba(14, 17, 33, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 18px;
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  gap: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+.infoCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .infoCardTitle {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   color: #ffffff;
   margin: 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.infoBadge {
+  font-size: 10px;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
 }
 
 .infoBlock {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .infoBlockHeader {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+}
+
+.miniIconWrapper, .miniIconWrapperGold {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.miniIconWrapper {
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.miniIconWrapperGold {
+  background: rgba(245, 192, 74, 0.15);
+  border: 1px solid rgba(245, 192, 74, 0.3);
 }
 
 .infoIconMini {
-  width: 16px;
-  height: 16px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
+.infoTitleCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .infoBlockName {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  color: #e2e8f0;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.infoBlockTag {
+  font-size: 10px;
+  color: #c084fc;
+  font-weight: 600;
+}
+
+.infoBlockTagGold {
+  font-size: 10px;
+  color: #f5c04a;
+  font-weight: 600;
 }
 
 .infoBlockDesc {
   font-size: 11px;
   color: #94a3b8;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .viewRulesBtn {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 8px 12px;
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 12px;
+  padding: 10px 14px;
   color: #c084fc;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   margin-top: 4px;
 }
 
 .viewRulesBtn:hover {
-  background: rgba(168, 85, 247, 0.15);
+  background: rgba(168, 85, 247, 0.2);
   color: #ffffff;
-  border-color: rgba(168, 85, 247, 0.3);
+  border-color: rgba(168, 85, 247, 0.4);
 }
 
 /* Responsive */
@@ -277,11 +450,16 @@
     grid-template-columns: 1fr;
   }
 
+  .topTickerBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .balanceRow {
     flex-direction: column;
   }
 
   .mainTitle {
-    font-size: 26px;
+    font-size: 28px;
   }
 }

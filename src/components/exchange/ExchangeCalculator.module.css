@@ -1,0 +1,286 @@
+.calculatorCard {
+  background: linear-gradient(135deg, rgba(22, 27, 48, 0.9) 0%, rgba(14, 17, 33, 0.95) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.calculatorCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #a855f7 0%, #3b82f6 50%, #f5c04a 100%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.rateBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(245, 192, 74, 0.12);
+  border: 1px solid rgba(245, 192, 74, 0.3);
+  padding: 6px 14px;
+  border-radius: 12px;
+  color: #f5c04a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.zapIcon {
+  color: #f5c04a;
+}
+
+.swapGrid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.inputCard {
+  background: rgba(10, 12, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s ease;
+}
+
+.inputCard:focus-within {
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.15);
+}
+
+.receiveCard {
+  border-color: rgba(245, 192, 74, 0.2);
+}
+
+.inputHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.balanceTag {
+  font-size: 11px;
+  color: #c084fc;
+  font-weight: 600;
+}
+
+.instantTag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.assetGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 14px;
+  border-radius: 12px;
+}
+
+.assetIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.assetName {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.numberInput {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: right;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+}
+
+.numberInput::-webkit-inner-spin-button,
+.numberInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.calculatedValue {
+  font-size: 24px;
+  font-weight: 800;
+  color: #f5c04a;
+  text-align: right;
+  width: 100%;
+  text-shadow: 0 0 12px rgba(245, 192, 74, 0.3);
+}
+
+.presetButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.presetBtn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 6px 0;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.presetBtn:hover {
+  background: rgba(168, 85, 247, 0.2);
+  color: #ffffff;
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.receiveSubtext {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.swapIconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swapIconCircle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.infoText {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.infoIcon {
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.swapActionBtn {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 28px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+  transition: all 0.2s ease;
+}
+
+.swapActionBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+@media (max-width: 868px) {
+  .swapGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .swapIconCircle {
+    transform: rotate(90deg);
+  }
+}

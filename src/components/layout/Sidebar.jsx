@@ -7,7 +7,8 @@ import {
   Users, 
   History, 
   HelpCircle,
-  X 
+  X,
+  Sparkles
 } from 'lucide-react';
 import gemPyramidsImg from '../../assets/coin_pyramids.png';
 import styles from './Sidebar.module.css';
@@ -40,7 +41,30 @@ function Sidebar({ isOpen, onClose }) {
           </div>
           <div className={styles.logoText}>
             <span className={styles.logoBrand}>VELOOP</span>
-            <span className={styles.logoSub}>REWARDS</span>
+            <span className={styles.logoSub}>REWARDS HUB</span>
+          </div>
+        </div>
+
+        {/* User Profile Card */}
+        <div className={styles.userProfile}>
+          <div className={styles.avatarRow}>
+            <div className={styles.avatar}>D</div>
+            <div className={styles.userInfo}>
+              <div className={styles.userNameRow}>
+                <span className={styles.greeting}>Welcome,</span>
+                <span className={styles.userName}>Disha</span>
+              </div>
+              <span className={styles.veloopId}>VLRINT202601722</span>
+            </div>
+          </div>
+          <div className={styles.levelProgressCol}>
+            <div className={styles.levelHeader}>
+              <span className={styles.levelBadge}>Level 7</span>
+              <span className={styles.xpText}>780 / 1000 XP</span>
+            </div>
+            <div className={styles.xpTrack}>
+              <div className={styles.xpFill} style={{ width: '78%' }} />
+            </div>
           </div>
         </div>
 
@@ -57,7 +81,12 @@ function Sidebar({ isOpen, onClose }) {
                   >
                     <IconComponent className={styles.navIcon} size={18} />
                     <span className={styles.navLabel}>{item.label}</span>
-                    {item.badgeDot && <span className={styles.activeDot} />}
+                    {item.badgeDot && (
+                      <span className={styles.activePill}>
+                        <Sparkles size={10} />
+                        <span>LIVE</span>
+                      </span>
+                    )}
                   </a>
                 </li>
               );
@@ -65,30 +94,17 @@ function Sidebar({ isOpen, onClose }) {
           </ul>
         </nav>
 
-        {/* User Profile Card */}
-        <div className={styles.userProfile}>
-          <div className={styles.avatar}>D</div>
-          <div className={styles.userInfo}>
-            <div className={styles.userNameRow}>
-              <span className={styles.greeting}>Hello,</span>
-              <span className={styles.userName}>Disha</span>
-              <span className={styles.levelBadge}>Level 7</span>
-            </div>
-            <span className={styles.veloopId}>Veloop ID: VLRINT202601722</span>
-          </div>
-        </div>
-
         {/* Earn More Gems Banner */}
         <div className={styles.earnCard}>
-          <h4 className={styles.earnTitle}>Earn More Gems!</h4>
+          <h4 className={styles.earnTitle}>Earn Extra Gems!</h4>
           <p className={styles.earnText}>
-            Complete tasks, refer friends and unlock more ways to earn Gems.
+            Complete daily quests & invite friends to level up your rewards.
           </p>
           <div className={styles.earnGraphicWrapper}>
             <img src={gemPyramidsImg} alt="Gems graphics" className={styles.earnGraphic} />
           </div>
           <button type="button" className={styles.exploreBtn}>
-            Explore Now
+            Explore Quests
           </button>
         </div>
       </aside>

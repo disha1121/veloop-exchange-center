@@ -4,8 +4,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 12, 22, 0.75);
-  backdrop-filter: blur(8px);
+  background: rgba(8, 10, 18, 0.85);
+  backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,13 +14,13 @@
 }
 
 .modal {
-  background: linear-gradient(180deg, #1a1d30 0%, #121424 100%);
+  background: linear-gradient(180deg, rgba(22, 27, 48, 0.95) 0%, rgba(14, 17, 33, 0.98) 100%);
   border: 1px solid rgba(168, 85, 247, 0.3);
-  border-radius: 24px;
+  border-radius: 26px;
   padding: 28px 24px 24px 24px;
   width: 100%;
   max-width: 440px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(168, 85, 247, 0.15);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(168, 85, 247, 0.2);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -30,14 +30,14 @@
 
 .closeBtn {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 18px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #94a3b8;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,8 +50,30 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
 .title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   color: #ffffff;
   margin: 0 0 4px 0;
@@ -60,37 +82,38 @@
 .subtitle {
   font-size: 12px;
   color: #94a3b8;
-  margin: 0 0 20px 0;
+  margin: 0;
 }
 
 /* Conversion Card */
 .conversionCard {
   width: 100%;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  background: rgba(10, 12, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
   padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .amountBlock {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(0, 0, 0, 0.25);
-  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 18px;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   width: 100%;
   justify-content: center;
 }
 
 .goldBlock {
-  border-color: rgba(245, 192, 74, 0.2);
+  border-color: rgba(245, 192, 74, 0.25);
+  background: rgba(245, 192, 74, 0.05);
 }
 
 .assetIcon {
@@ -111,25 +134,76 @@
   color: #ffffff;
 }
 
-.goldBlock .amountValue {
+.amountValueGold {
+  font-size: 20px;
+  font-weight: 800;
   color: #f5c04a;
 }
 
-.amountLabel {
-  font-size: 13px;
-  font-weight: 600;
+.amountLabel, .amountLabelGold {
+  font-size: 12px;
+  font-weight: 700;
   color: #94a3b8;
 }
 
+.amountLabelGold {
+  color: #f5c04a;
+}
+
 .arrowCircle {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.4);
   color: #c084fc;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Info List */
+.infoList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.infoLabel {
+  color: #94a3b8;
+}
+
+.infoValue {
+  color: #ffffff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.freeBadge {
+  color: #10b981;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.zapIcon {
+  color: #f5c04a;
 }
 
 /* Summary Grid */
@@ -142,10 +216,10 @@
 }
 
 .summaryItem {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 12px 10px;
+  background: rgba(10, 12, 22, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -154,7 +228,7 @@
 .summaryLabel {
   font-size: 10px;
   color: #94a3b8;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .summaryValue {
@@ -179,10 +253,10 @@
   padding: 12px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border-radius: 14px;
   color: #cbd5e1;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -197,13 +271,13 @@
   padding: 12px;
   background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   color: #ffffff;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 4px 18px rgba(168, 85, 247, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,7 +285,7 @@
 }
 
 .confirmBtn:hover:not(:disabled) {
-  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+  box-shadow: 0 6px 22px rgba(168, 85, 247, 0.6);
   transform: translateY(-1px);
 }
 

@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { Sparkles, ArrowRight, Share2 } from 'lucide-react';
 import checkImg from '../../assets/check.png';
 import gemImg from '../../assets/burple_diamond.png';
 import coinImg from '../../assets/coin.png';
@@ -34,8 +35,13 @@ function ConversionSuccess({ conversion, onContinue }) {
             />
           </div>
 
+          <div className={styles.badge}>
+            <Sparkles size={11} />
+            <span>Success</span>
+          </div>
+
           <h2 id="success-title" className={styles.title}>Conversion Complete!</h2>
-          <p className={styles.subtitle}>Your rewards have been successfully converted and added to your balance.</p>
+          <p className={styles.subtitle}>Your rewards have been successfully converted and added to your wallet balance.</p>
 
           <div className={styles.summaryContainer}>
             <div className={styles.summaryBadge}>
@@ -45,13 +51,16 @@ function ConversionSuccess({ conversion, onContinue }) {
             
             <div className={`${styles.summaryBadge} ${styles.goldBadge}`}>
               <img src={coinImg} alt="" className={styles.miniIcon} />
-              <span><strong>+{conversion.receiveVEs}</strong> VEs Added</span>
+              <span><strong className={styles.goldText}>+{conversion.receiveVEs}</strong> VEs Added</span>
             </div>
           </div>
 
-          <button type="button" className={styles.continueBtn} onClick={onContinue}>
-            Continue
-          </button>
+          <div className={styles.btnRow}>
+            <button type="button" className={styles.continueBtn} onClick={onContinue}>
+              <span>Done</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
         </motion.div>
       </div>
     </AnimatePresence>

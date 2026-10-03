@@ -3,6 +3,7 @@ import { initialBalance, exchangeOptions, conversionHistory, exchangeSteps, exch
 import Sidebar from '../../components/layout/Sidebar';
 import TopHeader from '../../components/layout/TopHeader';
 import ExchangeHero from '../../components/exchange/ExchangeHero';
+import ExchangeCalculator from '../../components/exchange/ExchangeCalculator';
 import ExchangeCard from '../../components/exchange/ExchangeCard';
 import RewardBanner from '../../components/exchange/RewardBanner';
 import HowExchangeWorks from '../../components/exchange/HowExchangeWorks';
@@ -26,22 +27,21 @@ function ExchangeCenter() {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setPageStatus('ready'), 1000);
+    const timer = setTimeout(() => setPageStatus('ready'), 800);
     return () => clearTimeout(timer);
   }, []);
 
   const handleRetry = () => {
     setPageStatus('loading');
-    setTimeout(() => setPageStatus('ready'), 1000);
+    setTimeout(() => setPageStatus('ready'), 800);
   };
 
   const handleCancel = useCallback(() => setSelectedOption(null), []);
 
   const handleEarnMore = () => {
-    // Scroll to Earn More section or open prompt
-    const earnEl = document.querySelector(`.${styles.pageContainer}`);
-    if (earnEl) {
-      earnEl.scrollIntoView({ behavior: 'smooth' });
+    const rulesEl = document.getElementById('exchange-rules-section');
+    if (rulesEl) {
+      rulesEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -74,7 +74,7 @@ function ExchangeCenter() {
           date: 'Today',
           time: timeString,
           status: 'completed',
-          gemTheme: selectedOption.gemTheme,
+          gemTheme: selectedOption.gemTheme || 'purple',
         },
         ...prev,
       ]);
@@ -82,7 +82,7 @@ function ExchangeCenter() {
       setLastConversion(selectedOption);
       setSelectedOption(null);
       setIsProcessing(false);
-    }, 1400);
+    }, 1200);
   };
 
   return (
@@ -116,17 +116,23 @@ function ExchangeCenter() {
                 onScrollToRules={handleScrollToRules} 
               />
 
+              {/* Interactive Quick Swap Calculator */}
+              <ExchangeCalculator
+                availableGems={balance.gems}
+                onCustomConvert={setSelectedOption}
+              />
+
               {/* Available Conversions Header */}
               <section className={styles.conversionsSection}>
                 <div className={styles.conversionsHeader}>
                   <div className={styles.conversionsTitleRow}>
-                    <h2 className={styles.sectionHeading}>Available Conversions</h2>
+                    <h2 className={styles.sectionHeading}>Predefined Exchange Tiers</h2>
                     <InfoTooltip
                       label={infoExplanations.availableConversions.label}
                       text={infoExplanations.availableConversions.text}
                     />
                   </div>
-                  <p className={styles.sectionSubheading}>Choose a conversion that works best for you.</p>
+                  <p className={styles.sectionSubheading}>Select a predefined tier to exchange your accumulated reward Gems into VEs.</p>
                 </div>
 
                 {/* Cards Grid */}
